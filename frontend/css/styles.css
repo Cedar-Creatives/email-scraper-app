@@ -1,0 +1,60 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #343a40;
+}
+
+.textarea-container {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.results {
+    margin-top: 30px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+.email-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.email-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.email-list li:last-child {
+    border-bottom: none;
+}
+
+.download-btn {
+    margin-top: 20px;
+    display: none;
+}
