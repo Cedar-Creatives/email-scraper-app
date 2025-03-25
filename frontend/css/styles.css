@@ -1,60 +1,99 @@
 body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #343a40;
+  color: #f8f9fa;
 }
 
 .container {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #343a40;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #343a40;
+}
+
+body.dark-mode h1 {
+  color: #f8f9fa;
 }
 
 .textarea-container {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 textarea {
-    width: 100%;
-    height: 200px;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    padding: 10px;
-    font-size: 16px;
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+body.dark-mode .btn-primary {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+body.dark-mode .btn-success {
+  background-color: #1e7e34;
+  border-color: #1e7e34;
 }
 
 .results {
-    margin-top: 30px;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    padding: 15px;
-    background-color: #ffffff;
+  margin-top: 30px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 15px;
+  background-color: #ffffff;
 }
 
 .email-list {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .email-list li {
-    padding: 5px 0;
-    border-bottom: 1px solid #e9ecef;
+  padding: 5px 0;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .email-list li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .download-btn {
-    margin-top: 20px;
-    display: none;
+  margin-top: 20px;
+  display: none;
+}
+
+.mode-section {
+  display: none;
+}
+
+.mode-section:not(.d-none) {
+  display: block;
 }

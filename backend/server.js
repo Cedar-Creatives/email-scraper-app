@@ -90,24 +90,31 @@ function extractEmails(html) {
 
 // Route to scrape emails
 app.post("/api/scrape", async (req, res) => {
-  const { urls } = req.body;
+  const { urls, text } = req.body;
 
-  if (!urls || !Array.isArray(urls)) {
+  if (!urls && !text) {
     return res
       .status(400)
-      .json({ error: "Invalid request. 'urls' must be an array." });
+      .json({ error: "Invalid request. Provide either 'urls' or 'text'." });
   }
 
   const allEmails = new Set(); // Use a Set to avoid duplicate emails
 
-  for (const url of urls) {
-    try {
-      const response = await axios.get(url); // Fetch the HTML content of the URL
-      const emails = extractEmails(response.data); // Extract emails from the HTML
-      emails.forEach((email) => allEmails.add(email)); // Add emails to the Set
-    } catch (error) {
-      console.error(`Error fetching URL ${url}:`, error.message);
+  if (urls && Array.isArray(urls)) {
+    for (const url of urls) {
+      try {
+        const response = await axios.get(url); // Fetch the HTML content of the URL
+        const emails = extractEmails(response.data); // Extract emails from the HTML
+        emails.forEach((email) => allEmails.add(email)); // Add emails to the Set
+      } catch (error) {
+        console.error(`Error fetching URL ${url}:`, error.message);
+      }
     }
+  }
+
+  if (text) {
+    const emails = extractEmails(text); // Extract emails from the provided text
+    emails.forEach((email) => allEmails.add(email)); // Add emails to the Set
   }
 
   const emailArray = Array.from(allEmails); // Convert Set to Array
